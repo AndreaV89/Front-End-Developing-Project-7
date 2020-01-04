@@ -2,12 +2,6 @@
     box-sizing: border-box;
 }
 
-/* clicked color: lightgreen 
-    mobile chart colors:
-        rgba(116, 119, 191, 1)
-        rgba(129, 201, 143, 1)
-        rgba(116, 177, 191, 1) */
-
 .grid-container {
     font-family: 'Quicksand', sans-serif;
     font-weight: 100;
@@ -21,11 +15,13 @@
         "main-container";
 }
 
+.main-header, .profile, .main-nav, .traffic-header, .traffic-nav, .dashboard-header, .search-div, .social, .social-container {
+    display: flex;
+}
+
 .main-header {
     grid-area: main-header;
     color: white;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     background-color: #7477bf;
 }
@@ -40,7 +36,6 @@ h1 span {
 }
 
 .profile {
-    display: flex;
     justify-content: space-between;
 }
 
@@ -68,24 +63,39 @@ h1 span {
 
 .profile h3 {
     font-size: .9em;
-    margin: auto 5px auto 5px;
+    margin: auto 5px;
 }
 
 .main-nav {
     grid-area: main-nav;
     background-color: #4d4c72;
-    display: flex;
     justify-content: center;
+    height: 60px;
 }
 
 .main-nav a {
-    margin: 5px 10px;
+    margin: 10px 10px;
     color: gray;
 }
 
 .traffic-header {
-    display: flex;
     justify-content: space-between;
+}
+
+.traffic-nav {
+    margin: auto 20px;
+}
+
+.traffic-nav li {
+    margin: auto 8px;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+
+.clicked {
+    border-radius: 15px;
+    background-color: lightgreen;
+    color: white;
 }
 
 .main-nav img {
@@ -98,30 +108,129 @@ h1 span {
 }
 
 .dashboard-header {
-    display: flex;
     flex-wrap: wrap;
-    /* justify-content: space-between; */
 }
 
 .header-title {
-    float: left;
-    width: fit-content;
     margin: 18px;
 }
 
 .search-div {
-    float: left;
+    flex-grow: 1;
     border-left: 1px solid lightgrey;
     border-bottom: 1px solid lightgrey;
 }
 
+.search {
+    margin: auto 18px auto auto;
+    padding-left: 10px;
+    padding-right: 10px; 
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
 #alert-bar {
     width: 100%;
+    margin: 18px;
+    background-color: #7477bf;
+    color: white;
+    border-radius: 5px;
+}
+
+#alert-bar p {
+    margin: 10px;
+}
+
+.traffic-widget-container, .daily-widget-container, .mobile-widget-container {
+    position: relative;
+    margin: auto;
+    height: 40vh;
+    width: 80vw;
+}
+
+section {
+    padding: 30px;
+}
+
+.social {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.social-container {
+    width: 70%;
+    height: 130px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid rgba(128, 128, 128, .5);
+    border-radius: 7px;
+}
+.social-text {
+    margin: 25px 0 25px 10px;
+}
+
+.social-text p {
+    margin: 0;
+}
+
+.social-text p:first-child {
+    color: #7477bf;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.social-text p:last-child {
+    color: rgba(0, 0, 0, .6);
+    font-size: 40px;
+}
+
+.social-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #7477bf;
+    margin: 25px 10px 25px 20px
+}
+
+.social-image svg {
+    width: 40px;
+    height: 40px;
+}
+
+#twitter-icon {
+    margin-top: 23px;
+    margin-left: 20px;
+}
+
+#facebook-icon {
+    margin-top: 18px;
+    margin-left: 18px;
+}
+
+#google-icon {
+    margin: 20px;
+}
+
+.social h3, .daily h3, .mobile h3, .members h3, .recent h3, .message h3, .settings h3 {
+    width: 100%;
+    text-align: center;
+}
+
+.daily, .mobile, .social, .members, .recent, .message, .settings {
+    border-top: 1px solid rgba(128, 128, 128, .5);
+}
+
+.members-container img, .recent-container img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
 }
 
 @media (min-width: 768px) {
     .grid-container {
-        max-width: 1200px;
         margin: auto;
         grid-template-columns: 90px 1fr;
         grid-template-areas:
@@ -143,6 +252,7 @@ h1 span {
     .main-nav {
         flex-direction: column;
         justify-content: flex-start;
+        height: auto;
     }
     .main-nav a {
         margin: 25px auto;
@@ -154,11 +264,57 @@ h1 span {
         margin: auto 20px auto 10px;
     }
     .profile div {
-        width: 1px;
-        height: 40px;
-        background-color: #4d4c72;
         margin: auto 15px;
     }
+    .social-container {
+        width: 50%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    .daily-widget-container, .mobile-widget-container {
+        width: 40vw;
+    }
+    .daily h3, .mobile h3, .members h3, .recent h3, .message h3, .settings h3 {
+        text-align: left;
+    }
+    .daily, .members {
+        border: 1px solid rgba(128, 128, 128, .5);
+        border-left: none;
+    }
+    
+    .mobile, .recent {
+        border-top: 1px solid rgba(128, 128, 128, .5);
+        border-bottom: 1px solid rgba(128, 128, 128, .5);
+    }
+    .social {
+        border: none;
+    }
+    .message {
+        border-right: 1px solid rgba(128, 128, 128, .5);
+    }
+    .settings, .message{
+        border-top: none;
+    }
+}
 
+@media (min-width: 1024px) {
+    .social {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .social-container {
+        width: 28%;
+        margin: 0;    
+    }
+    .social h3 {
+        text-align: left;
+    }
+    .members, .members-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .members-container {
+        justify-content: space-between;
+    }
 }
 
