@@ -1,0 +1,28 @@
+// Daily Chart Styles
+
+.daily {
+    border-top: 1px solid rgba(128, 128, 128, .5);
+    @include tablet-mq {
+        grid-column: 1 / span 1;
+        border: 1px solid rgba(128, 128, 128, .5);
+        border-left: none;
+    }
+}
+
+.daily-widget-container {
+    position: relative;
+    margin: auto;
+    height: 40vh;
+    width: 80vw;
+    @include tablet-mq {
+        width: 35vw;
+    }
+}
+
+.daily h3 {
+    width: 100%;
+    text-align: center;
+    @include tablet-mq {
+        text-align: left;
+    }
+}

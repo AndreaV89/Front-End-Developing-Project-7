@@ -1,0 +1,95 @@
+// Social Section Styles
+
+.social, .social-container {
+    display: flex;
+}
+
+.social {
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    border-top: 1px solid rgba(128, 128, 128, .5);
+    @include tablet-mq {
+        grid-column: 1 / span 2;
+        border: none;
+    };
+    @include desktop-mq {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.social h3 {
+    width: 100%;
+    text-align: center;
+    @include desktop-mq {
+        text-align: left;
+    }
+}
+
+.social-container {
+    width: 70%;
+    height: 130px;
+    margin: auto;
+    margin-bottom: 20px;
+    border: 1px solid rgba(128, 128, 128, .5);
+    border-radius: 7px;
+    @include tablet-mq {
+        width: 50%;
+        margin: auto;
+        margin-bottom: 20px;
+    };
+    @include desktop-mq {
+        width: 28%;
+        margin: 0; 
+    }
+}
+
+.social-text {
+    margin: 25px 0 25px 10px;
+}
+
+.social-text p {
+    margin: 0;
+}
+
+.social-text p:first-child {
+    color: $main-color;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.social-text p:last-child {
+    color: rgba(0, 0, 0, .6);
+    font-size: 40px;
+}
+
+.social-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #7477bf;
+    margin: 25px 10px 25px 20px
+}
+
+.social-image svg {
+    width: 40px;
+    height: 40px;
+}
+
+#twitter-icon {
+    margin-top: 23px;
+    margin-left: 20px;
+}
+
+#facebook-icon {
+    margin-top: 18px;
+    margin-left: 18px;
+}
+
+#google-icon {
+    margin: 20px;
+}
+
+
+

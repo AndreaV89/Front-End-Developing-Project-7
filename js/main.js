@@ -44,7 +44,9 @@ const dailyData = {
         label: "# of Hits",
         data: [75, 115, 175, 125, 225, 200, 100],
         backgroundColor: '#7477BF',
-        borderWidth: 1
+        borderWidth: 1,
+        barThickness: 'flex',
+        maxBarThickness: 30
     }]
 };
 const dailyOptions = {

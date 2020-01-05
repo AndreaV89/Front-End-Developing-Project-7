@@ -1,0 +1,162 @@
+// Base components
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 1.4em;
+    margin: 20px 0 20px 10px;
+    @include tablet-mq {
+        margin: 20px 0 20px 20px;
+    }
+}
+
+h1 span {
+    font-weight: 100;
+}
+
+section {
+    padding: 30px;
+}
+
+.grid-container {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 100;
+    color: gray;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "main-header"
+        "main-nav"
+        "main-container";
+    @include tablet-mq {
+        margin: auto;
+        grid-template-columns: 90px 1fr;
+        grid-template-areas:
+            "main-header main-header"
+            "main-nav main-container";
+    }
+}
+
+.main-container {
+    display: grid;
+    grid-area: main-container;
+    @include tablet-mq {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.main-header, .profile, .main-nav {
+    display: flex;
+}
+
+.main-header {
+    grid-area: main-header;
+    color: $second-font-color;
+    justify-content: space-between;
+    background-color: $main-color;
+}
+
+.main-nav {
+    grid-area: main-nav;
+    background-color: $second-color;
+    justify-content: center;
+    height: 60px;
+    @include tablet-mq {
+        flex-direction: column;
+        justify-content: flex-start;
+        height: auto;
+    }
+}
+
+.main-nav a {
+    margin: 10px 10px;
+    color: $main-font-color;
+    @include tablet-mq {
+        margin: 25px auto;
+    }
+}
+
+.main-nav img {
+    width: 33px;
+}
+
+.dashboard-header {
+    display: flex;
+    flex-wrap: wrap;
+    @include tablet-mq {
+        grid-column: 1 / span 2;
+    }
+}
+
+.header-title {
+    margin: 18px;
+}
+
+.search-div {
+    display: flex;
+    flex-grow: 1;
+    border-left: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+}
+
+.search {
+    margin: auto 18px auto auto;
+    padding-left: 10px;
+    padding-right: 10px; 
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+}
+
+#alert-bar {
+    width: 100%;
+    margin: 18px;
+    background-color: $main-color;
+    color: $second-font-color;
+    border-radius: 5px;
+}
+
+#alert-bar p {
+    margin: 10px;
+}
+
+.profile {
+    justify-content: space-between;
+}
+
+.profile div {
+    width: 1px;
+    height: 40px;
+    background-color: $second-color;
+    margin: auto 5px;
+    @include tablet-mq {
+        margin: auto 15px;
+    }
+}
+
+.profile a {
+    margin: auto;
+}
+
+.profile h3 {
+    font-size: .9em;
+    margin: auto 5px;
+    @include tablet-mq {
+        margin: auto 20px auto 10px;
+    }
+}
+
+#profile-image {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    margin: auto;
+}
+
+#icon-bell {
+    width: 21px;
+}

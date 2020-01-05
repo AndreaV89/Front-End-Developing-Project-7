@@ -224,9 +224,24 @@ section {
 }
 
 .members-container img, .recent-container img {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
+}
+
+.members-container, .recent-container {
+    border-bottom: 1px solid rgba(211, 211, 211, .7);
+    margin-bottom: 20px;
+    height: 150px;
+}
+
+.members-container p, .recent-container p {
+    margin: 5px auto 0 auto;
+}
+
+.members-container a {
+    color: #7477bf;
+    text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -272,7 +287,7 @@ section {
         margin-bottom: 20px;
     }
     .daily-widget-container, .mobile-widget-container {
-        width: 40vw;
+        width: 35vw;
     }
     .daily h3, .mobile h3, .members h3, .recent h3, .message h3, .settings h3 {
         text-align: left;
@@ -309,12 +324,17 @@ section {
     .social h3 {
         text-align: left;
     }
-    .members, .members-container {
+    .members-container, .recent-container {
         display: flex;
-        flex-direction: column;
+        height: auto;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
     }
-    .members-container {
-        justify-content: space-between;
+    .members-container p, .members-container a {
+        margin: 0 auto 0 10px;
+    }
+    .members-container p:last-child {
+        margin: 10px 10px 22px auto;
     }
 }
 

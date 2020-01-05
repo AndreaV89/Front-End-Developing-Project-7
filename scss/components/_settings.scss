@@ -1,0 +1,17 @@
+// Settings Section Styles
+
+.settings {
+    border-top: 1px solid rgba(128, 128, 128, .5);
+    @include tablet-mq {
+        grid-column: 2 / span 1;
+        border-top: none;
+    }
+}
+
+.settings h3 {
+    width: 100%;
+    text-align: center;
+    @include tablet-mq {
+        text-align: left;
+    }
+}

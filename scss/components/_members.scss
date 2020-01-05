@@ -1,0 +1,57 @@
+// Members Section Styles
+
+.members {
+    border-top: 1px solid rgba(128, 128, 128, .5);
+    @include tablet-mq {
+        grid-column: 1 / span 1;
+        border: 1px solid rgba(128, 128, 128, .5);
+        border-left: none;
+    }
+}
+
+.members-container {
+    border-bottom: 1px solid rgba(211, 211, 211, .7);
+    margin-bottom: 20px;
+    height: 150px;
+    @include desktop-mq {
+        display: flex;
+        height: auto;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+.members-container img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.members-container a {
+    color: $main-color;
+    text-decoration: none;
+    @include desktop-mq {
+        margin: 0 auto 0 10px;
+    }
+}
+
+.members-container p {
+    margin: 5px auto 0 auto;
+    @include desktop-mq {
+        margin: 0 auto 0 10px;
+    }
+}
+
+.members-container p:last-child {
+    @include desktop-mq {
+        margin: 10px 10px 22px auto;
+    }
+}
+
+.members h3 {
+    width: 100%;
+    text-align: center;
+    @include tablet-mq {
+        text-align: left;
+    }
+}

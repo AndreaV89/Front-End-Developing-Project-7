@@ -1,0 +1,19 @@
+// Message Section Styles
+
+.message {
+    border-top: 1px solid rgba(128, 128, 128, .5);
+    @include tablet-mq {
+        grid-column: 1 / span 1;
+        border-right: 1px solid rgba(128, 128, 128, .5);
+        border-top: none;
+    }
+}
+
+.message h3 {
+    width: 100%;
+    text-align: center;
+    @include tablet-mq {
+        text-align: left;
+    }
+}
+

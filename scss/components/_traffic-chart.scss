@@ -1,0 +1,38 @@
+// Traffic Chart Styles
+
+.traffic {
+    @include tablet-mq {
+        grid-column: 1 / span 2;
+    }
+}
+
+.traffic-header, .traffic-nav {
+    display: flex;
+}
+
+.traffic-header {
+    justify-content: space-between;
+}
+
+.traffic-nav {
+    margin: auto 20px;
+}
+
+.traffic-nav li {
+    margin: auto 8px;
+    font-weight: bold;
+    padding: 3px 10px;
+}
+
+.clicked {
+    border-radius: 15px;
+    background-color: lightgreen;
+    color: $second-font-color;
+}
+
+.traffic-widget-container {
+    position: relative;
+    margin: auto;
+    height: 40vh;
+    width: 80vw;
+}
