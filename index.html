@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WebApp Dashboard</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" />
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="grid-container">
@@ -185,23 +186,40 @@
         </section>
         <section class="message">
             <h3>MESSAGE USER</h3>
-            <form class="widget-container">
-                <input type="text" placeholder="Search for User">
-                <textarea placeholder="Message for User"></textarea>
-                <button>Send</button>
+            <form class="message-container">
+                <input id="user-input" type="text" placeholder="Search for User">
+                <textarea id="message-input" placeholder="Message for User"></textarea>
+                <button id="message-btn">SEND</button>
             </form>
         </section>
         <section class="settings">
             <h3>SETTINGS</h3>
-
-            <select>
+            <label class="switch-light switch-ios" onclick="">
+                <input type="checkbox">
+                <strong>Send Email Notification</strong>
+                <span>
+                    <span>OFF</span>
+                    <span>ON</span>
+                    <a></a>
+                </span>
+            </label>
+            <label class="switch-light switch-ios" onclick="">
+                <input type="checkbox">
+                <strong>Set Profile to Public</strong>
+                <span>
+                    <span>OFF</span>
+                    <span>ON</span>
+                    <a></a>
+                </span>
+            </label>
+            <select id="timezone">
                 <option disabled selected>Select a Timezone</option>
                 <option></option>
                 <!-- more options -->
             </select>
             <div class="settings-button">
-                <button>Save</button>
-                <button>Cancel</button>
+                <button>SAVE</button>
+                <button>CANCEL</button>
             </div>
         </section>
     </main>

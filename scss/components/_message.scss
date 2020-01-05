@@ -1,12 +1,19 @@
 // Message Section Styles
 
 .message {
-    border-top: 1px solid rgba(128, 128, 128, .5);
+    border-top: 1px solid $border-color;
+    display: flex;
+    flex-direction: column;
     @include tablet-mq {
         grid-column: 1 / span 1;
-        border-right: 1px solid rgba(128, 128, 128, .5);
+        border-right: 1px solid $border-color;
         border-top: none;
     }
+}
+
+.message-container {
+    display: flex;
+    flex-direction: column;
 }
 
 .message h3 {
@@ -15,5 +22,41 @@
     @include tablet-mq {
         text-align: left;
     }
+}
+
+#user-input, #message-input, #message-btn {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 20px;
+    border-radius: 7px;
+    @include tablet-mq {
+        width: 100%;
+    }
+}
+
+#message-input {
+    height: 150px;
+    padding-left: 15px;
+    padding-top: 15px;
+    resize: none;
+    border: 1px solid $border-color;
+}
+
+#user-input {
+    padding-left: 15px;
+    height: 40px;
+    border: 1px solid $border-color;
+}
+
+#message-btn {
+    background-color: $main-color;
+    color: $second-font-color;
+    font-weight: bold;
+    height: 50px;
+    border: none;
+}
+
+#user-input::placeholder, #message-input::placeholder {
+   color: rgba($color: $main-font-color, $alpha: .5);
 }
 

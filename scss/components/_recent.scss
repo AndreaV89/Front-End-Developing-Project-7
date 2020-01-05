@@ -1,11 +1,13 @@
 // Recent Section Styles
 
 .recent {
-    border-top: 1px solid rgba(128, 128, 128, .5);
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $border-color;
     @include tablet-mq {
         grid-column: 2 / span 1;
-        border-top: 1px solid rgba(128, 128, 128, .5);
-        border-bottom: 1px solid rgba(128, 128, 128, .5);
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
     }
 }
 
@@ -17,17 +19,20 @@
     }
 }
 
+.recent .recent-container:last-child {
+    border-bottom: none;
+}
+
 .recent-container {
     border-bottom: 1px solid rgba(211, 211, 211, .7);
-    margin-bottom: 20px;
+    margin: 0 auto 20px auto;
+    width: 80%;
     height: 150px;
     @include desktop-mq {
-        .recent-container {
             display: flex;
-            height: auto;
+            height: 100px;
             margin-bottom: 10px;
             padding-bottom: 10px;
-        }
     }
 }
 
@@ -35,9 +40,18 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    @include desktop-mq {
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
 }
 
 .recent-container p {
     margin: 5px auto 0 auto;
+    @include desktop-mq {
+        margin-top: 0;
+    }
+    
 }
 

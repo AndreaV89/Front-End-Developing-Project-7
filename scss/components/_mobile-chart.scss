@@ -1,18 +1,18 @@
 // Mobile Chart Styles
 
 .mobile {
-    border-top: 1px solid rgba(128, 128, 128, .5);
+    border-top: 1px solid $border-color;
     @include tablet-mq {
         grid-column: 2 / span 1;
-        border-top: 1px solid rgba(128, 128, 128, .5);
-        border-bottom: 1px solid rgba(128, 128, 128, .5);
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
     }
 }
 
 .mobile-widget-container {
     position: relative;
     margin: auto;
-    height: 40vh;
+    height: 30vh;
     width: 80vw;
     @include tablet-mq {
         width: 35vw;

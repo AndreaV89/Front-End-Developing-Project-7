@@ -23,7 +23,13 @@ let trafficOptions = {
     scales: {
         yAxes: [{
             ticks: {
-                beginAtZero: true
+                fontFamily: 'Quicksand',
+                beginAtZero: true,
+            },
+        }],
+        xAxes: [{
+            ticks: {
+                fontFamily: 'Quicksand',
             }
         }]
     },
@@ -45,8 +51,7 @@ const dailyData = {
         data: [75, 115, 175, 125, 225, 200, 100],
         backgroundColor: '#7477BF',
         borderWidth: 1,
-        barThickness: 'flex',
-        maxBarThickness: 30
+        maxBarThickness: 40
     }]
 };
 const dailyOptions = {
@@ -59,7 +64,8 @@ const dailyOptions = {
     },
     legend: {
         display: false
-    }
+    },
+    maintainAspectRatio: false,
 }
 
 let dailyChart = new Chart(dailyCanvas, {
@@ -87,10 +93,14 @@ const mobileOptions = {
     legend: {
         position: 'right',
         labels: {
-            boxWidth: 20,
-            fontStyle: 'bold'
+            fontFamily: 'Quicksand',
+            fontSize: 20,
+            boxWidth: 30,
+            fontStyle: 'bold',
+            padding: 40
         }
-    }
+    },
+    maintainAspectRatio: false,
 };
 let mobileChart = new Chart(mobileCanvas, {
     type: 'doughnut',
