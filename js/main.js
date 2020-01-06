@@ -1,10 +1,96 @@
 
+// Close Alert Bar
+
+$('#close-alert').click(function() {
+    $('#alert-bar').fadeOut('slow', function(){});
+});
+
+// Changing Traffic Chart
+
+$('.traffic-nav li').click(function() {
+    $('.traffic-nav li').removeClass('clicked');
+    $(this).addClass('clicked');
+    if(this.textContent === "Hourly") {
+        trafficChart = new Chart(trafficCanvas, {
+            type: 'line',
+            data: trafficHourlyData,
+            options: trafficOptions
+        });
+    } else if (this.textContent === "Daily") {
+        trafficChart = new Chart(trafficCanvas, {
+            type: 'line',
+            data: trafficDailyData,
+            options: trafficOptions
+        });
+    } else if (this.textContent === "Weekly") {
+        trafficChart = new Chart(trafficCanvas, {
+            type: 'line',
+            data: trafficWeeklyData,
+            options: trafficOptions
+        });
+    } else {
+        trafficChart = new Chart(trafficCanvas, {
+            type: 'line',
+            data: trafficMonthlyData,
+            options: trafficOptions
+        });
+    };
+});
+
 // Traffic Chart
 let trafficCanvas = document.getElementById('traffic-chart');
-let trafficData = {
+const trafficWeeklyData = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18,24", "25-31"],
     datasets: [{
-        data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2260],
+        data: [0, 750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2260],
+        backgroundColor: 'rgba(116, 119, 191, .3)',
+        pointBackgroundColor: 'rgba(255, 255, 255)',
+        pointBorderColor: 'rgba(116, 119, 191, 1)',
+        pointRadius: 6,
+        hoverRadius: 6,
+        pointBorderWidth: 2,
+        hoverBorderWidth: 2,
+        borderColor: 'rgba(116, 119, 191, 1)', 
+        borderWidth: 1,
+        tension: 0,
+    }]
+};
+const trafficDailyData = {
+    labels: ["M", "T", "W", "T", "F", "S", "S"],
+    datasets: [{
+        data: [75, 115, 175, 125, 225, 200, 100],
+        backgroundColor: 'rgba(116, 119, 191, .3)',
+        pointBackgroundColor: 'rgba(255, 255, 255)',
+        pointBorderColor: 'rgba(116, 119, 191, 1)',
+        pointRadius: 6,
+        hoverRadius: 6,
+        pointBorderWidth: 2,
+        hoverBorderWidth: 2,
+        borderColor: 'rgba(116, 119, 191, 1)', 
+        borderWidth: 1,
+        tension: 0,
+    }]
+};
+const trafficHourlyData = {
+    labels: ["0-3", "3-6", "6-9", "9-12", "12-15", "15-18", "18-21", "21-24"],
+    datasets: [{
+        data: [0, 20, 10, 30, 60, 50, 80, 75, 20],
+        backgroundColor: 'rgba(116, 119, 191, .3)',
+        pointBackgroundColor: 'rgba(255, 255, 255)',
+        pointBorderColor: 'rgba(116, 119, 191, 1)',
+        pointRadius: 6,
+        hoverRadius: 6,
+        pointBorderWidth: 2,
+        hoverBorderWidth: 2,
+        borderColor: 'rgba(116, 119, 191, 1)', 
+        borderWidth: 1,
+        tension: 0,
+    }]
+};
+const trafficMonthlyData = {
+    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    datasets: [{
+        data: [4750, 3500, 4000, 4500, 5000, 6000, 5500, 6250, 5750, 6100, 6900, 5300],
         backgroundColor: 'rgba(116, 119, 191, .3)',
         pointBackgroundColor: 'rgba(255, 255, 255)',
         pointBorderColor: 'rgba(116, 119, 191, 1)',
@@ -38,7 +124,7 @@ let trafficOptions = {
 };
 let trafficChart = new Chart(trafficCanvas, {
     type: 'line',
-    data: trafficData,
+    data: trafficHourlyData,
     options: trafficOptions
 });
 
@@ -107,3 +193,5 @@ let mobileChart = new Chart(mobileCanvas, {
     data: mobileData,
     options: mobileOptions
 });
+
+// Autocomplete
