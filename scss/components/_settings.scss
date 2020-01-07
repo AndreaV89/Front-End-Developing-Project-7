@@ -85,3 +85,13 @@
     background-color: $main-color;
     color: $second-font-color;
 }
+
+.settings-button button:focus {
+    outline: none;
+    border: 1px solid $second-color;
+}
+
+#timezone:focus {
+    outline: none;
+    border: 1px solid $main-color;
+}

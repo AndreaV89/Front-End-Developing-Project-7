@@ -1,8 +1,29 @@
+// Notification Bell
 
-// Close Alert Bar
+$(document).ready(function(){
+    $('.profile a').click(function(){
+        if ($('#notification-box').children().length === 1) {
+            $('#no-notification').slideToggle(300);
+        } else {
+            $('#notification-box').slideToggle(300);
+        }
+    });
+    $('#notification-box p span').click(function(){
+        $(this).parent().slideUp(300, function(){
+            $(this).remove();
+            if ($('#notification-box').children().length === 1){
+                $('.notification-circle').addClass('notification-hide');
+            }
+        });
+         
+    });
+    
+});
+
+// Alert Bar
 
 $('#close-alert').click(function() {
-    $('#alert-bar').fadeOut('slow', function(){});
+    $('#alert-bar').slideUp();
 });
 
 // Changing Traffic Chart
@@ -38,6 +59,7 @@ $('.traffic-nav li').click(function() {
 });
 
 // Traffic Chart
+
 let trafficCanvas = document.getElementById('traffic-chart');
 const trafficWeeklyData = {
     labels: ["16-22", "23-29", "30-5", "6-12", "13-19", "20-26", "27-3", "4-10", "11-17", "18,24", "25-31"],
@@ -129,6 +151,7 @@ let trafficChart = new Chart(trafficCanvas, {
 });
 
 // Daily Chart
+
 const dailyCanvas = document.getElementById('daily-chart');
 const dailyData = {
     labels: ["S", "M", "T", "W", "T", "F", "S"],
@@ -161,6 +184,7 @@ let dailyChart = new Chart(dailyCanvas, {
 });
 
 // Mobile Chart
+
 const mobileCanvas = document.getElementById("mobile-chart");
 const mobileData = {
     labels: ["Desktop", "Tablet", "Phones"],
@@ -194,4 +218,69 @@ let mobileChart = new Chart(mobileCanvas, {
     options: mobileOptions
 });
 
+// Message Section
+
+$('#message-btn').click(function (e) {
+    e.preventDefault();
+    if ($('#user-input').val() === "" && $('#message-input').val() === "") {
+        alert("Please fill both fields");
+    } else if ($('#user-input').val() === "") {
+        alert("Please fill User field");
+    } else if ($('#message-input').val() === "") {
+        alert("Please fill Message field");
+    } else {
+        alert("Message successfully sent to " + $('#user-input').val());
+    }
+    });
+    
+
+    
+
 // Autocomplete
+
+$("#user-input").autoComplete({
+    minChars: 1,
+    source: function(term, suggest){
+        term = term.toLowerCase();
+        var choices = ['Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver'];
+        var matches = [];
+        for (i=0; i<choices.length; i++)
+            if (~choices[i].toLowerCase().indexOf(term)) matches.push(choices[i]);
+        suggest(matches);
+    }
+});
+
+// Local Storage
+
+$(document).ready(function(){
+    $("#save").click(function(){
+    localStorage.setItem("emailNotification", $("#email").is(':checked'));
+    localStorage.setItem("publicProfile", $("#profile").is(':checked'));
+    localStorage.setItem("timezone", $('#timezone').val());
+
+ });
+});
+
+function load(){    
+    var checkedemail = JSON.parse(localStorage.getItem('emailNotification'));
+    var checkedprofile = JSON.parse(localStorage.getItem('publicProfile'));
+    document.getElementById('email').checked = checkedemail;
+    document.getElementById('profile').checked = checkedprofile;
+    $('#timezone').val(localStorage.getItem('timezone'));
+}
+
+$(document).ready(function(){
+
+    $("#cancel").click(function(){
+
+    localStorage.removeItem("emailNotification");
+    localStorage.removeItem("publicProfile");
+    localStorage.removeItem("timezone");
+
+    document.getElementById('email').checked = false;
+    document.getElementById('profile').checked = false;
+    $('#timezone').val("Select a Timezone");
+   });
+});
+
+load();

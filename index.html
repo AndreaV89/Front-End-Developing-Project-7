@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>WebApp Dashboard</title>
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="js/autocomplete_plugin/jquery.auto-complete.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" />
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body class="grid-container">
     <header class="main-header">
-        <h1>Your<span>App&trade;</span></h1>
+        <h1>My<span>App&trade;</span></h1>
         <div class="profile">
             <a href="#">
                 <svg id="icon-bell" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -20,7 +21,7 @@
                     <path d="M24,18v-8c0-5.5-4.5-10-10-10S4,4.5,4,10v8l-4,8h9.1c0.5,2.3,2.5,4,4.9,4s4.4-1.7,4.9-4H28L24,18z M14,28
                     c-1.3,0-2.4-0.8-2.8-2h5.6C16.4,27.2,15.3,28,14,28z M3,24l3-6v-8c0-4.4,3.6-8,8-8s8,3.6,8,8v8l3,6H3z"/>
                 </g>
-           <circle id="notification" fill="#35EA37" cx="27.01" cy="4.6" r="4"/>
+           <circle class="notification-circle" fill="#35EA37" cx="27.01" cy="4.6" r="4"/>
            </svg>
             </a>
             <div></div>
@@ -86,6 +87,12 @@
             </svg>
         </a>
     </nav>
+    <div id="notification-box">
+        <p>You have <strong>2</strong> new likes<span><strong>x</strong></span></p>
+        <p>You have <strong>1</strong> new emails<span><strong>x</strong></span></p>
+        <p>You have <strong>4</strong> unread messages<span><strong>x</strong></span></p>
+        <p id="no-notification">You have <strong>0</strong> notifications</p>
+    </div>
     <main class="main-container">
         <div class="dashboard-header"> <!-- row 1 -->
             <h2 class="header-title">Dashboard</h2>
@@ -93,7 +100,7 @@
                 <input class="search" type="search" placeholder="Search">
             </div>
             <div id="alert-bar">
-                <p><strong>Alert</strong>  Lorem ipsum dolor sit amet consectetur</p>
+                <p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete.</p>
                 <a id="close-alert" href="#">X</a>
             </div>
         </div>
@@ -108,7 +115,7 @@
                 </ul>
             </div>
             <div class="traffic-widget-container">
-                <canvas id="traffic-chart" height="80px"></canvas>
+                <canvas id="traffic-chart"></canvas>
             </div>
         </section> <!-- row 3 -->
         <section class="daily">
@@ -183,7 +190,7 @@
         <section class="members">
             <h3>NEW MEMBERS</h3>
             <div class="members-container">
-                <img src="images/member-1.jpg"> <!-- profile image -->
+                <img src="images/member-1.jpg" alt="profile image">
                 <div class="members-text">
                     <p>Victoria Chambers</p>
                     <a href="mailto:victoria.chambers80@example.com">victoria.chambers80@example.com</a>
@@ -191,7 +198,7 @@
                 <p>10/15/15</p>
             </div>
             <div class="members-container">
-                <img src="images/member-2.jpg"> <!-- profile image -->
+                <img src="images/member-2.jpg" alt="profile image">
                 <div class="members-text">
                     <p>Dale Byrd</p>
                     <a href="mailto:dale.byrd52@example.com">dale.byrd52@example.com</a>
@@ -199,7 +206,7 @@
                 <p>10/15/15</p>
             </div>
             <div class="members-container">
-                <img src="images/member-3.jpg"> <!-- profile image -->
+                <img src="images/member-3.jpg" alt="profile image">
                 <div class="members-text">
                     <p>Dawn Wood</p>
                     <a href="mailto:dawn.wood16@example.com">dawn.wood16@example.com</a>
@@ -207,7 +214,7 @@
                 <p>10/15/15</p>
             </div>
             <div class="members-container">
-                <img src="images/member-4.jpg"> <!-- profile image -->
+                <img src="images/member-4.jpg" alt="profile image">
                 <div class="members-text">
                     <p>Dan Oliver</p>
                     <a href="mailto:dan.oliver82@example.com">dan.oliver82@example.com</a>
@@ -218,28 +225,28 @@
         <section class="recent">
             <h3>RECENT ACTIVITY</h3>
             <div class="recent-container">
-                <img src="images/member-1.jpg"> <!-- profile image -->
+                <img src="images/member-1.jpg" alt="profile image">
                 <div class="recent-text">
                     <p>Victoria Chambers commented on YourApp's SEO Tips</p>
                     <p>4 hours ago</p>  
                 </div>
             </div>
             <div class="recent-container">
-                <img src="images/member-2.jpg"> <!-- profile image -->
+                <img src="images/member-2.jpg" alt="profile image">
                 <div class="recent-text">
                     <p>Dale Byrd like the post Facebook's Changes for 2016</p>
                     <p>5 hours ago</p>
                 </div>
             </div>
             <div class="recent-container">
-                <img src="images/member-3.jpg"> <!-- profile image -->
+                <img src="images/member-3.jpg" alt="profile image">
                 <div class="recent-text">
                     <p>Dawn Wood commented on Facebook's Changes for 2016</p>
                     <p>5 hours ago</p>
                 </div>
             </div>
             <div class="recent-container">
-                <img src="images/member-4.jpg"> <!-- profile image -->
+                <img src="images/member-4.jpg" alt="profile image">
                 <div class="recent-text">
                     <p>Dan Oliver posted YourApp's SEO Tips</p>
                     <p>1 day ago</p>
@@ -257,7 +264,7 @@
         <section class="settings">
             <h3>SETTINGS</h3>
             <label class="switch-light switch-ios" onclick="">
-                <input type="checkbox">
+                <input type="checkbox" id="email">
                 <strong>Send Email Notification</strong>
                 <span>
                     <span>OFF</span>
@@ -266,7 +273,7 @@
                 </span>
             </label>
             <label class="switch-light switch-ios" onclick="">
-                <input type="checkbox">
+                <input type="checkbox" id="profile">
                 <strong>Set Profile to Public</strong>
                 <span>
                     <span>OFF</span>
@@ -276,16 +283,30 @@
             </label>
             <select id="timezone">
                 <option disabled selected>Select a Timezone</option>
-                <option></option>
-                <!-- more options -->
+                <option>Pacific Time (US) PST UTC-8</option>
+                <option>Mountain Time (US) MST UTC-7</option>
+                <option>Central Time (US) CST UTC-6</option>
+                <option>Eastern Time (US) EST UTC-5</option>
+                <option>Rio de Janeiro, Brazil UTC-3</option>
+                <option>London, United Kingdom GMT</option>
+                <option>Berlin, Germany CET UTC+1</option>
+                <option>Moscow, Russia MSK UTC+3</option>
+                <option>Dubai, United Arab Emirates UTC+4</option>
+                <option>Mumbai, India IST UTC+5:30</option>
+                <option>Singapore UTC+8</option>
+                <option>Beijing, China CST UTC+8</option>
+                <option>Tokyo, Japan JST UTC+9</option>
+                <option>Sydney, Australia AEDT UTC+11</option>
+                <option>Auckland, New Zealand NZDT UTC+13</option>
             </select>
             <div class="settings-button">
-                <button>SAVE</button>
-                <button>CANCEL</button>
+                <button id="save">SAVE</button>
+                <button id="cancel">CANCEL</button>
             </div>
         </section>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/autocomplete_plugin/jquery.auto-complete.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="js/main.js"></script>
 </body>

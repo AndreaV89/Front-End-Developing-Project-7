@@ -48,6 +48,20 @@
     border: 1px solid $border-color;
 }
 
+#user-input:focus, #message-input:focus {
+    outline: none;
+    border: 1px solid $main-color;
+}
+
+#message-btn:focus {
+    outline: none;
+    border: 1px solid $second-color;
+}
+
+.autocomplete-suggestion b {
+    color: $main-color;
+}
+
 #message-btn {
     background-color: $main-color;
     color: $second-font-color;

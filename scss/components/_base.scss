@@ -127,6 +127,11 @@ section {
     border: 1px solid $border-color;
 }
 
+.search:focus {
+    outline: none;
+    border: 1px solid $main-color;
+}
+
 #alert-bar {
     display: flex;
     justify-content: space-between;
@@ -188,4 +193,42 @@ section {
 #icon-bell {
     width: 21px;
     fill: white;
+}
+
+#notification-box{
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 40px ;
+    width: 240px;
+    background-color: rgba(226,227,246,1);
+    box-shadow: 0 0 5px black;
+    @include tablet-mq {
+        right: 90px;
+    }
+}
+
+#notification-box p span{
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#notification-box p{
+    font-size: 14px;
+    padding: 15px 0;
+    margin: 0px 10px;
+    border-bottom: 1px solid lightgrey;
+}
+
+#notification-box p:last-child{
+    border-bottom: none;
+}
+
+.notification-hide{
+    display: none;
+}
+
+#no-notification {
+    display: none;
 }
