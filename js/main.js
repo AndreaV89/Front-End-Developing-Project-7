@@ -196,22 +196,42 @@ const mobileData = {
             '#7477BF',
             '#78CF82',
             '#51B6C8'
-        ]
+        ],
     }]
 };
-const mobileOptions = {
-    legend: {
-        position: 'right',
-        labels: {
-            fontFamily: 'Quicksand',
-            fontSize: 20,
-            boxWidth: 30,
-            fontStyle: 'bold',
-            padding: 40
-        }
-    },
-    maintainAspectRatio: false,
-};
+
+let mobileOptions = {};
+if ($(window).width() > 768 ) {
+    mobileOptions = {
+        legend: {
+            position: 'right',
+            labels: {
+                fontFamily: 'Quicksand',
+                fontSize: 17,
+                boxWidth: 30,
+                fontStyle: 'bold',
+                padding: 40
+            }
+        },
+        maintainAspectRatio: false,
+    };
+} else {
+    mobileOptions = {
+        legend: {
+            position: 'bottom',
+            labels: {
+                fontFamily: 'Quicksand',
+                fontSize: 13,
+                boxWidth: 13,
+                fontStyle: 'bold',
+                padding: 13
+            }
+        },
+        maintainAspectRatio: false,
+    };
+}
+
+
 let mobileChart = new Chart(mobileCanvas, {
     type: 'doughnut',
     data: mobileData,
