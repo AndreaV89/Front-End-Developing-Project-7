@@ -17,7 +17,10 @@ h1 span {
 }
 
 section {
-    padding: 30px;
+    padding: 10px;
+    @include tablet-mq {
+        padding: 30px;
+    }
 }
 
 .grid-container {
@@ -107,7 +110,12 @@ section {
 }
 
 .header-title {
-    margin: 18px;
+    font-size: 1em;
+    margin: 18px 10px;
+    @include tablet-mq {
+        font-size: 1.5em;
+        margin: 18px;
+    }
 }
 
 .search-div {
@@ -121,10 +129,13 @@ section {
     margin: auto 18px auto auto;
     padding-left: 10px;
     padding-right: 10px; 
-    width: 250px;
+    width: 150px;
     height: 30px;
     border-radius: 5px;
     border: 1px solid $border-color;
+    @include tablet-mq {
+        width: 250px;
+    }
 }
 
 .search:focus {

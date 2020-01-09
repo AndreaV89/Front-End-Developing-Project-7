@@ -11,18 +11,41 @@
 }
 
 .traffic-header {
-    justify-content: space-between;
+    flex-wrap: wrap;
+    @include tablet-mq {
+        justify-content: space-between;
+    }
+}
+
+.traffic-header h3 {
+    width: 100%;
+    text-align: center;
+    @include tablet-mq {
+        width: auto;
+    }
 }
 
 .traffic-nav {
-    margin: auto 20px;
+    margin-bottom: 10px;
+    width: 100%;
+    @include tablet-mq {
+        width: auto;
+        margin: auto 20px;
+    }
 }
 
 .traffic-nav li {
-    margin: auto 8px;
+    font-size: .8em;
+    margin: 0 auto;
     font-weight: bold;
     padding: 3px 10px;
     cursor: pointer;
+    width: 22%;
+    text-align: center;
+    @include tablet-mq {
+        margin: auto 8px;
+        font-size: 1em;
+    }
 }
 
 .clicked {
